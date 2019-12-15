@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 10.396108, lng: -75.493935},
+          zoom: 15,
+          disableDefaultUI: true 
+        });
+        let listaMarcadores = [];
+        var marker = new google.maps.Marker({
+            position: {lat: 10.393208, lng: -75.482481},
+            animation: google.maps.Animation.DROP,
+            title: 'Bomba Esso El Amparo'
+        });
+        listaMarcadores.push(marker)
+        var marker = new google.maps.Marker({
+            position: {lat: 10.393280, lng: -75.483700},
+            animation: google.maps.Animation.DROP,
+            title: 'Bomba Texaco El Amparo'
+        });
+        listaMarcadores.push(marker)
+        var marker = new google.maps.Marker({
+            position: {lat: 10.388227, lng: -75.502410},
+            animation: google.maps.Animation.DROP,
+            title: 'E.D.S MOBIL LAS MURALLAS'
+        });
+        listaMarcadores.push(marker)
+
+        listaMarcadores.forEach(marcador => {
+            marcador.setMap(map);
+        })
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASi5H2K0bGW0SIOZRzDb3h43eOVDMKams&callback=initMap"
+    async defer></script>
+    <div class="floatItem">
+        <div  class="card border-info ">
+            <div class="card-header"><h1>Lista de estaciones</h1></div>
+            <div class="card-body">
+                <div class="list-group">
+                    <a href="{{ url_for('priceStation') }}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Texaco bomba del amparo</h5>
+                        <small>9.000</small>
+                        </div>
+                        <p class="mb-1"> frente a ronda real</p>
+                    </a>
+                    <a href="{{ url_for('priceStation') }}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">esso bomba del amparo</h5>
+                            <small>9.500</small>
+                        </div>
+                        <p class="mb-1"> frente a ronda real</p>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
