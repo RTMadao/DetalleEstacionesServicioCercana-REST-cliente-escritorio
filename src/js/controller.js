@@ -1,8 +1,5 @@
 var map;
 let listaMarcadores = [];
-var list;
-
-
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {

@@ -16,18 +16,18 @@
             <div class="card-header"><h1>lista de estaciones</h1></div>
             <div class="card-body">
                 <div id="style-7" class="list-group scroll">
-                    <a v-for="estacion in estaciones" class="list-group-item list-group-item-action">
+                    <a onclick="buscarValorGasolina();" v-for="estacion in estaciones" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{estacion.nombre}}</h5>
-                        <small>9.000</small>
                         </div>
-                        <p class="mb-1"> frente a ronda real</p>
+                        <p class="mb-1"> Cartagena</p>
                     </a> 
                 </div>
             </div>
         </div>
     </div>
     <script src="../js/controller.js"></script>
+    <script src="../js/soapClient.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
     async defer></script>
 </body>

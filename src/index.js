@@ -26,7 +26,11 @@ const templateMenu = [
 ]
 
 app.on('ready', ( ) => {
-    mainWindow = new BrowserWindow({})
+    mainWindow = new BrowserWindow({
+        webPreferences: {
+            nodeIntegration: true
+        }
+    })
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'views/index.html'),
         protocol: 'file',
